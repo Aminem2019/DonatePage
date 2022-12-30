@@ -133,7 +133,7 @@ function App() {
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
-            <h1 className="navbar-item is-size-4">Ocean Token (OCT)</h1>
+            <h1 className="navbar-item is-size-4">Donation Page</h1>
           </div>
           <div id="navbarMenu" className="navbar-menu">
             <div className="navbar-end is-align-items-center">
@@ -148,7 +148,7 @@ function App() {
                         6
                       )}...${walletAddress.substring(38)}`
                     : "Connect Wallet"}
-                  { walletChainId && walletChainId.length > 0
+                  { walletAddress && walletAddress.length > 0  &&  walletChainId && walletChainId.length > 0
                     ? ` (${walletChainId})`
                     : ""}
                 </span>
