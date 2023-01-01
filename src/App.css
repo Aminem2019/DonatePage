@@ -62,3 +62,16 @@ body {
 .withdraw-success {
   color: green;
 }
+
+.connect-wallet-visible {
+  display: block;
+}
+
+.navbar-menu {
+  width: 200px;
+}
+
+.navbar-brand {
+  display: flex;
+  width: calc(100% - 200px);
+}

@@ -16,16 +16,16 @@ function App() {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
         /* MetaMask is installed */
-				/* fetch account */
+        /* fetch account */
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
         setWalletAddress(accounts[0]);
         console.log(accounts[0]);
-				/* fetch chainId */
-				const chainId = await window.ethereum.request({
-					method: 'eth_chainId'
-				});
+        /* fetch chainId */
+        const chainId = await window.ethereum.request({
+          method: 'eth_chainId'
+        });
         setWalletChainId(chainId);
         console.log(chainId);
       } catch (err) {
@@ -48,15 +48,15 @@ function App() {
           console.log(accounts[0]);
         } else {
           console.log("Connect to MetaMask using the Connect button");
-					return;
+          return;
         }
-				/* fetch chainId */
-				const chainId = await window.ethereum.request({
-					method: 'eth_chainId'
-				});
+        /* fetch chainId */
+        const chainId = await window.ethereum.request({
+          method: 'eth_chainId'
+        });
         if (chainId.length > 0) { /* if we are here, should be always true!? */
-        	setWalletChainId(chainId);
-        	console.log(chainId);
+          setWalletChainId(chainId);
+          console.log(chainId);
         } else {
           console.log("Connect to MetaMask using the Connect button");
         }
@@ -86,47 +86,47 @@ function App() {
     }
   };
 
-	const onInputChange = async event => {
-		if (event.target.validity.valid) {
-			setUserAmount(event.target.value);
-		}
-	};
+  const onInputChange = async event => {
+    if (event.target.validity.valid) {
+      setUserAmount(event.target.value);
+    }
+  };
 
-	const handleDonate = async event => {
+  const handleDonate = async event => {
 
       if (!(walletChainId && walletAddress && walletChainId.length > 0 && walletAddress.length > 0)) {
-				const msg = 'Please try to connect first!';
-				console.log(msg);
-				return alert(msg);
-			}
-			console.log(userAmount);
-			var EtherToWei = 0;
-			try {
-				EtherToWei = ethers.utils.parseUnits(userAmount,"ether");
-				console.log("EtherToWei", EtherToWei);
-			} catch(err) {
+        const msg = 'Please try to connect first!';
+        console.log(msg);
+        return alert(msg);
+      }
+      console.log(userAmount);
+      var EtherToWei = 0;
+      try {
+        EtherToWei = ethers.utils.parseUnits(userAmount,"ether");
+        console.log("EtherToWei", EtherToWei);
+      } catch(err) {
         console.error(err.message);
-				return;
-			}
+        return;
+      }
 
-			/* FIXME: update value */
-			const transactionParameters = {
-				to: "0x1155418c315169Da7e947C1D830E669F6b1F2f3e", // Required except during contract publications.
-				from: walletAddress, // must match user's active address.
-				value: EtherToWei._hex, // Only required to send ether to the recipient from the initiating external account.
-				chainId: walletChainId, // Used to prevent transaction reuse across blockchains. Auto-filled by MetaMask.
-			};
+      /* FIXME: update value */
+      const transactionParameters = {
+        to: "0x1155418c315169Da7e947C1D830E669F6b1F2f3e", // Required except during contract publications.
+        from: walletAddress, // must match user's active address.
+        value: EtherToWei._hex, // Only required to send ether to the recipient from the initiating external account.
+        chainId: walletChainId, // Used to prevent transaction reuse across blockchains. Auto-filled by MetaMask.
+      };
 
-			// txHash is a hex string
-			// As with any RPC call, it may throw an error
-			const txHash = await window.ethereum.request({
-				method: 'eth_sendTransaction',
-				params: [transactionParameters],
-			});
-			console.log(txHash);
-			const txHashField = document.getElementById('txHashField');
-			txHashField.innerText = "Transaction hash: " + txHash;
-	};
+      // txHash is a hex string
+      // As with any RPC call, it may throw an error
+      const txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+      });
+      console.log(txHash);
+      const txHashField = document.getElementById('txHashField');
+      txHashField.innerText = "Transaction hash: " + txHash;
+  };
 
   return (
     <div>
@@ -135,12 +135,12 @@ function App() {
           <div className="navbar-brand">
             <h1 className="navbar-item is-size-4">Donation Page</h1>
           </div>
-          <div id="navbarMenu" className="navbar-menu">
-            <div className="navbar-end is-align-items-center">
+          <div id="navbarMenu" className="navbar-menu connect-wallet-visible">
+            <div className="navbar-end is-right">
               <button
-                className="button is-white connect-wallet"
-                onClick={connectWallet}
-              >
+                  className="button is-white connect-wallet connect-wallet-visible"
+                  onClick={connectWallet}
+                >
                 <span className="is-link has-text-weight-bold">
                   {walletAddress && walletAddress.length > 0 
                     ? `Connected: ${walletAddress.substring(
@@ -168,9 +168,9 @@ function App() {
                   <input
                     className="input is-medium"
                     type="text"
-										value={userAmount}
-										pattern="[0-9]+([\.][0-9]*)?" 
-										onInput={onInputChange}
+                    value={userAmount}
+                    pattern="[0-9]+([\.][0-9]*)?" 
+                    onInput={onInputChange}
                     placeholder="Enter the amount (example 0.05)"
                   />
                 </div>
