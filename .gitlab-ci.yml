@@ -10,7 +10,7 @@ build:
     PUBLIC_URL: https://amine2029.gitlab.io/Amine.2029/donate/
   script:
     - npm install      
-    - npm build
+    - npm run build
   artifacts:
     paths:
       - build/          
