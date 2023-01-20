@@ -1,7 +1,7 @@
 {
   "name": "faucet-ui",
   "version": "0.1.0",
-  "homepage": "https://amine.2029.gitlab.io/donate",
+  "homepage": "https://amine2029.gitlab.io/donate",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
