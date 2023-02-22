@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/DonatePage/static/css/main.95765580.css",
-    "main.js": "/DonatePage/static/js/main.a6d9b5f9.js",
-    "static/js/787.e73a5041.chunk.js": "/DonatePage/static/js/787.e73a5041.chunk.js",
+    "main.css": "/DonatePage/static/css/main.a24fa732.css",
+    "main.js": "/DonatePage/static/js/main.a8c7ac06.js",
+    "static/js/27.4354b0af.chunk.js": "/DonatePage/static/js/27.4354b0af.chunk.js",
     "static/media/bg-1.png": "/DonatePage/static/media/bg-1.5411575bcf31f6f46584.png",
-    "index.html": "/DonatePage/index.html",
-    "main.95765580.css.map": "/DonatePage/static/css/main.95765580.css.map",
-    "main.a6d9b5f9.js.map": "/DonatePage/static/js/main.a6d9b5f9.js.map",
-    "787.e73a5041.chunk.js.map": "/DonatePage/static/js/787.e73a5041.chunk.js.map"
+    "index.html": "/DonatePage/index.html"
   },
   "entrypoints": [
-    "static/css/main.95765580.css",
-    "static/js/main.a6d9b5f9.js"
+    "static/css/main.a24fa732.css",
+    "static/js/main.a8c7ac06.js"
   ]
 }
