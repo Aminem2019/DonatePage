@@ -7,7 +7,7 @@ function App() {
   const [walletAddress, setWalletAddress] = useState("");
   const [walletChainId, setWalletChainId] = useState("");
   const [userAmount, setUserAmount] = useState("");
-  const [isUsdInput, setIsUsdInput] = useState(false); // Added state variable
+  //const [isUsdInput, setIsUsdInput] = useState(false); // Added state variable
   const [usdAmount, setUsdAmount] = useState(""); // Added state variable
   const [currencyName, setCurrencyName] = useState("ETH");
 
@@ -67,6 +67,17 @@ function App() {
 
 
   const getCurrentWalletConnected = async () => {
+    // error printing function
+    const RequestConnection = async () => {
+      var msg = "";
+      if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+        msg = "Please install and connect to Metamask to continue.";
+      } else {
+        msg = "Please connect to Metamask to continue.";
+      }
+      console.log(msg);
+      window.alert(msg);
+    }
     if (!(typeof window != "undefined" && typeof window.ethereum != "undefined")) {
       /* MetaMask is not installed */
       RequestConnection();
@@ -102,7 +113,16 @@ function App() {
     if (!(typeof window != "undefined" && typeof window.ethereum != "undefined")) {
       /* MetaMask is not installed */
       setWalletAddress("");
-      RequestConnection();
+
+      var msg = "";
+      if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+        msg = "Please install and connect to Metamask to continue.";
+      } else {
+        msg = "Please connect to Metamask to continue.";
+      }
+      console.log(msg);
+      window.alert(msg);
+
       return;
     }
     window.ethereum.on("accountsChanged", (accounts) => {
@@ -122,7 +142,7 @@ function App() {
     }
     if (event.target.validity.valid) {
       setUserAmount(event.target.value);
-      setIsUsdInput(false);
+      //setIsUsdInput(false);
 
       if (event.target.value === "") {
         setUsdAmount("");
@@ -140,7 +160,7 @@ function App() {
     }
     if (event.target.validity.valid) {
       setUsdAmount(event.target.value);
-      setIsUsdInput(true);
+      //setIsUsdInput(true);
 
       if (event.target.value === "") {
         setUserAmount("");
