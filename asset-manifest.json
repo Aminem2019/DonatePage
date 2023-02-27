@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/DonatePage/static/css/main.a24fa732.css",
-    "main.js": "/DonatePage/static/js/main.a8c7ac06.js",
+    "main.js": "/DonatePage/static/js/main.8319c948.js",
     "static/js/27.4354b0af.chunk.js": "/DonatePage/static/js/27.4354b0af.chunk.js",
     "static/media/bg-1.png": "/DonatePage/static/media/bg-1.5411575bcf31f6f46584.png",
     "index.html": "/DonatePage/index.html"
   },
   "entrypoints": [
     "static/css/main.a24fa732.css",
-    "static/js/main.a8c7ac06.js"
+    "static/js/main.8319c948.js"
   ]
 }
